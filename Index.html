@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ND Lighting: chandeliers, pendants, wall, LED and outdoor lighting. Order online and confirm on WhatsApp.">
+<title>ND Lighting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=Open+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a showroom — editorial split hero with a lit fixture on deep blue, then quiet white floors where the products do the talking. */
+:root{
+  --paper:#FFFFFF; --soft:#F5F6F8; --tile:#EEF0F4; --line:#E8E9EC;
+  --ink:#142D4E; --text:#333B46; --muted:#6B7584;
+  --gold:#C5A15B; --gold-ink:#86662A; --on-gold:#142D4E;
+  --night:#142D4E; --night-2:#0D213D; --on-night:#F4EFE4; --on-night-muted:#A9B6C8;
+  --ok:#24734F; --warn:#9A5B12; --off:#8A93A0; --danger:#B3261E;
+  --shadow:0 1px 2px rgba(20,45,78,.06),0 8px 24px rgba(20,45,78,.08);
+  --display:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --body:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0B1829; --soft:#102239; --tile:#142A46; --line:#1F3653;
+  --ink:#F1F3F6; --text:#C9D1DC; --muted:#8E9AAB;
+  --gold:#D3B172; --gold-ink:#DDBE84; --on-gold:#142D4E;
+  --night:#07111F; --night-2:#050C17; --on-night:#F4EFE4; --on-night-muted:#93A3B8;
+  --ok:#5CC197; --warn:#E3A55A; --off:#7E8A9B; --danger:#F08A80;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0B1829; --soft:#102239; --tile:#142A46; --line:#1F3653;
+  --ink:#F1F3F6; --text:#C9D1DC; --muted:#8E9AAB;
+  --gold:#D3B172; --gold-ink:#DDBE84; --on-gold:#142D4E;
+  --night:#07111F; --night-2:#050C17; --on-night:#F4EFE4; --on-night-muted:#93A3B8;
+  --ok:#5CC197; --warn:#E3A55A; --off:#7E8A9B; --danger:#F08A80;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--text);font:15px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--paper)}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);color:var(--ink);font-weight:700;line-height:1.12;letter-spacing:-.015em;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:700 11px/1.2 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:0}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:var(--r);border:1px solid transparent;font-family:var(--display);font-weight:700;font-size:14.5px;text-decoration:none;cursor:pointer;transition:background .2s,border-color .2s,transform .15s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:var(--gold);color:var(--on-gold)}
+.btn-gold:hover{background:color-mix(in srgb,var(--gold) 88%,#000)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{opacity:.9}
+.btn-line{border-color:var(--line);background:transparent;color:var(--ink)}
+.btn-line:hover{border-color:var(--ink)}
+.btn-wa{background:#1F9D55;color:#fff}
+.btn-wa:hover{background:#198548}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn-block{width:100%}
+.link{color:var(--ink);font-weight:600;text-decoration:none;display:inline-flex;gap:6px;align-items:center;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.iconbtn{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;border:0;background:transparent;color:var(--ink);cursor:pointer;position:relative}
+.iconbtn:hover{background:var(--soft)}
+
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:24px;height:66px}
+.logo{display:flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--ink)}
+.logo b{font:800 26px/1 var(--display);letter-spacing:-.02em}
+.logo span{font:700 11px/1 var(--display);letter-spacing:.32em}
+.logo i{width:6px;height:6px;border-radius:50%;background:var(--gold);align-self:center;margin:0 -2px}
+.nav{display:flex;gap:4px;margin:0 auto}
+.nav a{padding:8px 12px;text-decoration:none;color:var(--text);font-weight:500;font-size:14.5px;border-radius:var(--r)}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--gold);border-radius:0}
+.tools{display:flex;gap:2px;margin-left:auto}
+.nav + .tools{margin-left:0}
+.count{position:absolute;top:4px;right:3px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:var(--on-gold);font:700 10.5px/18px var(--body);text-align:center}
+.count[data-n="0"]{display:none}
+.only-m{display:none}
+@media (max-width:860px){.nav{display:none}.only-m{display:inline-grid}.hdr .wrap{gap:8px}}
+
+/* hero */
+.hero{border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:stretch;padding-block:40px}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:22px;padding-block:24px;min-width:0}
+.hero h1{font-size:clamp(36px,5.2vw,64px);letter-spacing:-.025em;font-weight:800}
+.hero h1 em{font-style:italic;color:var(--gold-ink)}
+.hero-copy > p{font-size:17px;max-width:44ch}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.scene{position:relative;background:var(--night);border-radius:4px;overflow:hidden;min-height:440px;display:flex;flex-direction:column;color:var(--on-night)}
+.scene svg{display:block;width:100%;height:auto;flex:1}
+.scene .glowlayer{transition:opacity 1.6s ease .2s}
+.scene.dim .glowlayer{opacity:.25}
+.scene-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid rgba(255,255,255,.1)}
+.scene-bar a{color:var(--on-night);text-decoration:none;font-size:13.5px}
+.scene-bar a b{font-weight:600}
+.seg{display:inline-flex;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--on-night-muted);font:500 12px/1 var(--mono);padding:7px 10px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:rgba(255,255,255,.12);color:var(--on-night)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:24px;padding-block:24px}.scene{min-height:0}}
+
+/* sections */
+.sec{padding-block:72px}
+.sec + .sec{padding-top:0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px)}
+.sec-head p{max-width:52ch;margin-top:8px}
+@media (max-width:600px){.sec{padding-block:48px}}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px}
+.cat{position:relative;display:block;border-radius:4px;overflow:hidden;text-decoration:none;background:var(--tile)}
+.cat svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s ease}
+.cat:hover svg{transform:scale(1.04)}
+.cat .lbl{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;display:flex;justify-content:space-between;align-items:end;gap:8px;background:linear-gradient(transparent,rgba(7,17,31,.6));color:#fff}
+.cat .lbl b{font:700 21px/1.1 var(--display)}
+.cat .lbl span{font:12px var(--mono);opacity:.85}
+.cat:first-child{grid-row:span 2;grid-column:span 2}
+.cat:first-child .lbl b{font-size:30px}
+@media (max-width:860px){.cats{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.cat:first-child{grid-column:span 2;grid-row:span 1}}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px}
+@media (max-width:1020px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}}
+.card{display:flex;flex-direction:column;gap:12px;min-width:0}
+.card-media{position:relative;display:block;padding:0;border:0;border-radius:4px;overflow:hidden;aspect-ratio:1;max-width:100%;background:var(--tile);cursor:zoom-in}
+.card-media svg{display:block;width:100%;height:100%;transition:transform .45s ease}
+.card:hover .card-media svg{transform:scale(1.035)}
+.qv-hint{position:absolute;left:10px;bottom:10px;padding:6px 10px;border-radius:999px;background:var(--paper);color:var(--ink);font-size:12px;font-weight:600;opacity:0;transform:translateY(4px);transition:.2s}
+.card:hover .qv-hint,.card-media:focus-visible .qv-hint{opacity:1;transform:none}
+.card-body{display:flex;flex-direction:column;gap:6px;flex:1}
+.card-name{font-weight:600;color:var(--ink);text-decoration:none;line-height:1.35}
+.card-name:hover{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.card-meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 10px}
+.price{font-family:var(--display);font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.avail{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ok)}
+.avail::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.avail.low{color:var(--warn)}
+.avail.out{color:var(--off)}
+.btn-add{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;border:1px solid var(--line);border-radius:var(--r);background:transparent;color:var(--ink);font-weight:600;font-size:13.5px;cursor:pointer;transition:.2s}
+.btn-add:hover:not([disabled]){background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-add[disabled]{color:var(--muted);cursor:not-allowed}
+.btn-add svg.ic{width:17px;height:17px}
+
+/* finder band */
+.band{background:var(--night);color:var(--on-night)}
+.band .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding-block:56px}
+.band h2{color:var(--on-night);font-size:clamp(28px,3.6vw,42px)}
+.band p{color:var(--on-night-muted);max-width:48ch;margin-top:12px}
+.band .q{display:grid;gap:8px;font-family:var(--mono);font-size:13px;color:var(--on-night-muted)}
+.band .q div{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.band .q b{color:var(--gold);font-weight:500}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr}}
+
+/* rooms list */
+.rooms{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;border-top:1px solid var(--line)}
+.room{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.room b{font:700 26px/1.15 var(--display);color:var(--ink)}
+.room p{grid-column:1;color:var(--muted);font-size:14px}
+.room .go{grid-row:1/3;grid-column:2;display:flex;align-items:center;gap:10px;color:var(--ink)}
+.room:hover b{color:var(--gold-ink)}
+.room:hover .go svg{transform:translateX(3px)}
+.room .go svg{transition:transform .2s}
+@media (max-width:760px){.rooms{grid-template-columns:1fr}.room b{font-size:22px}}
+
+/* why + steps */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.points h3{font:600 15.5px/1.3 var(--body);color:var(--ink);margin-bottom:6px}
+.points p{font-size:14px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:24px;background:var(--soft);border-radius:4px;display:grid;gap:18px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;counter-increment:s}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);color:var(--gold-ink);display:grid;place-items:center;font:500 13px var(--mono)}
+.steps b{display:block;color:var(--ink);font-weight:600}
+.steps span{font-size:14px;color:var(--muted)}
+@media (max-width:860px){.why{grid-template-columns:1fr;gap:36px}}
+@media (max-width:480px){.points{grid-template-columns:1fr}}
+
+.cta{text-align:center;padding-block:80px;border-top:1px solid var(--line)}
+.cta h2{font-size:clamp(30px,4.4vw,52px);max-width:18ch;margin:0 auto 26px}
+.cta h2 em{color:var(--gold-ink)}
+.cta .row{justify-content:center}
+
+/* footer */
+.ftr{background:var(--night-2);color:var(--on-night-muted);font-size:14px}
+.ftr .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;padding-block:56px 28px}
+.ftr h4{margin:0 0 12px;font:600 11.5px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--on-night)}
+.ftr a{text-decoration:none;color:var(--on-night-muted)}
+.ftr a:hover{color:var(--on-night)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ftr .logo{color:var(--on-night);margin-bottom:14px}
+.ftr .base{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12.5px}
+@media (max-width:860px){.ftr .wrap{grid-template-columns:1fr 1fr}}
+
+/* page head + shop */
+.phead{padding-block:40px 24px}
+.phead h1{font-size:clamp(34px,4.6vw,54px)}
+.phead p{max-width:56ch;margin-top:10px}
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:14px;display:flex;flex-wrap:wrap;gap:6px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--ink)}
+.banner{display:grid;grid-template-columns:1.2fr 1fr;background:var(--night);border-radius:4px;overflow:hidden;margin-bottom:28px;color:var(--on-night)}
+.banner > div{padding:36px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}
+.banner h1{color:var(--on-night);font-size:clamp(32px,4.4vw,52px)}
+.banner p{color:var(--on-night-muted);max-width:44ch}
+.banner .eyebrow{color:var(--gold)}
+.banner svg{display:block;width:100%;height:100%;min-height:220px;max-height:320px}
+@media (max-width:700px){.banner{grid-template-columns:1fr}.banner > div{padding:24px}.banner svg{max-height:220px}}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:thin}
+.chip{flex:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:transparent;font-size:13.5px;font-weight:500;color:var(--text);cursor:pointer;white-space:nowrap}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 0;border-block:1px solid var(--line);margin-bottom:24px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.flabel{font-size:12.5px;font-weight:600;color:var(--ink)}
+.input,select.input,textarea.input{min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);color:var(--text);width:100%}
+textarea.input{padding:10px 12px;min-height:90px;resize:vertical}
+.input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 30%,transparent)}
+.filters .search{flex:1 1 220px;position:relative}
+.filters .search svg{position:absolute;left:12px;top:12px;color:var(--muted)}
+.filters .search .input{padding-left:40px}
+.filters select{width:auto;flex:0 1 auto}
+.check{display:inline-flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;padding:0 6px}
+.check input{width:17px;height:17px;accent-color:var(--ink)}
+.result-line{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:13.5px;color:var(--muted)}
+.empty{padding:56px 24px;text-align:center;border:1px dashed var(--line);border-radius:4px;display:grid;gap:12px;justify-items:center}
+.empty h3{font-size:24px}
+
+/* product page */
+.pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start;padding-bottom:56px}
+.gallery{position:sticky;top:calc(84px + env(safe-area-inset-top,0px));display:grid;gap:12px;min-width:0}
+.stage{position:relative;aspect-ratio:1;max-width:100%;border-radius:4px;overflow:hidden;background:var(--tile);cursor:zoom-in}
+.stage svg{display:block;width:100%;height:100%;transition:transform .25s ease}
+.stage.zoomed{cursor:zoom-out}
+.stage.zoomed svg{transform:scale(2.1)}
+.stage .hint{position:absolute;right:12px;bottom:12px;display:flex;gap:6px;align-items:center;padding:6px 10px;background:var(--paper);color:var(--ink);border-radius:999px;font-size:12px;font-weight:600;pointer-events:none}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.thumb{padding:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;aspect-ratio:1;background:var(--tile);cursor:pointer;display:grid}
+.thumb svg{width:100%;height:100%}
+.thumb[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.thumb span{grid-area:1/1;align-self:end;justify-self:start;margin:6px;padding:2px 7px;font:11px var(--mono);background:var(--paper);color:var(--ink);border-radius:3px}
+.thumb svg{grid-area:1/1}
+.info{display:flex;flex-direction:column;gap:20px;min-width:0}
+.info h1{font-size:clamp(32px,4vw,46px)}
+.info .price{font-size:24px}
+.opt-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:10px}
+.opt-label span{font-weight:400;color:var(--muted)}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.sw{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);padding:3px;background:var(--paper);cursor:pointer}
+.sw i{display:block;width:100%;height:100%;border-radius:50%}
+.sw[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:var(--r);height:46px}
+.stepper button{width:42px;height:100%;border:0;background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.stepper output{min-width:30px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.stepper.sm{height:36px}.stepper.sm button{width:34px}
+.buy{display:grid;grid-template-columns:auto 1fr 1fr;gap:10px}
+.buy .btn-wa{grid-column:1/-1}
+@media (max-width:480px){.buy{grid-template-columns:auto 1fr}.buy .btn-line{grid-column:1/-1}}
+.specs{width:100%;border-collapse:collapse;font-size:14px}
+.specs th{text-align:left;font-weight:500;color:var(--muted);padding:11px 16px 11px 0;width:38%;vertical-align:top;border-bottom:1px solid var(--line)}
+.specs td{padding:11px 0;color:var(--ink);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px}
+.note{padding:16px 18px;background:var(--soft);border-radius:4px;font-size:14px}
+.note b{color:var(--ink)}
+@media (max-width:860px){.pdp{grid-template-columns:1fr;gap:28px}.gallery{position:static}}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(7,17,31,.45);z-index:50;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);z-index:60;background:var(--paper);box-shadow:var(--shadow);display:flex;flex-direction:column;transform:translateX(102%);transition:transform .32s cubic-bezier(.2,.8,.2,1);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.drawer.on{transform:none}
+.d-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 14px 22px;border-bottom:1px solid var(--line)}
+.d-head h2{font-size:24px}
+.d-body{flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:18px}
+.d-foot{padding:18px 22px;border-top:1px solid var(--line);display:grid;gap:10px}
+.line{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:start;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.line .th{width:72px;height:72px;border-radius:4px;overflow:hidden;background:var(--tile)}
+.line .th svg{width:100%;height:100%;display:block}
+.line a{font-weight:600;color:var(--ink);text-decoration:none;line-height:1.3}
+.line .sub{font-size:12.5px;color:var(--muted)}
+.line .ctl{display:flex;gap:10px;align-items:center;margin-top:8px}
+.rm{border:0;background:none;color:var(--muted);font-size:12.5px;text-decoration:underline;cursor:pointer;padding:4px}
+.rm:hover{color:var(--danger)}
+.sumrow{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.sumrow.total{font-weight:700;color:var(--ink);font-size:16px;padding-top:10px;border-top:1px solid var(--line)}
+.mnav{display:grid}
+.mnav a{padding:14px 0;border-bottom:1px solid var(--line);font:700 24px var(--display);color:var(--ink);text-decoration:none}
+.qv-art{border-radius:4px;overflow:hidden;background:var(--tile);aspect-ratio:4/3}
+.qv-art svg{width:100%;height:100%;display:block}
+.sresults{display:grid;gap:4px}
+.sres{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:8px;border-radius:var(--r);text-decoration:none}
+.sres:hover,.sres:focus-visible{background:var(--soft)}
+.sres .th{width:52px;height:52px;border-radius:4px;overflow:hidden}
+.sres .th svg{width:100%;height:100%;display:block}
+.sres b{font-weight:600;color:var(--ink);font-size:14px}
+.sres span{font-size:12.5px;color:var(--muted)}
+
+/* checkout */
+.co{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start;padding-bottom:64px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form .full{grid-column:1/-1}
+.form fieldset{border:0;padding:0;margin:0;display:contents}
+.err{color:var(--danger);font-size:12.5px;min-height:0}
+.field.bad .input{border-color:var(--danger)}
+.summary{position:sticky;top:calc(84px + env(safe-area-inset-top,0px));background:var(--soft);border-radius:4px;padding:24px;display:grid;gap:14px}
+.summary h2{font-size:24px}
+.summary .line{grid-template-columns:56px 1fr auto;padding-bottom:12px}
+.summary .line .th{width:56px;height:56px}
+.pay{display:grid;gap:10px}
+.payopt{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+.payopt.on{border-color:var(--ink)}
+.payopt input{margin-top:3px;accent-color:var(--ink)}
+.payopt b{color:var(--ink);display:block;font-size:14px}
+.payopt span{font-size:13px;color:var(--muted)}
+.payopt.off{opacity:.6}
+@media (max-width:860px){.co{grid-template-columns:1fr}.summary{position:static;order:-1}}
+@media (max-width:480px){.form{grid-template-columns:1fr}}
+
+.done{max-width:720px;margin:0 auto;padding-block:48px 72px;display:grid;gap:22px}
+.ref{font:500 clamp(30px,5vw,44px)/1 var(--mono);color:var(--ink);letter-spacing:.02em}
+pre.msg{margin:0;padding:18px;background:var(--soft);border-radius:4px;font:13px/1.6 var(--mono);white-space:pre-wrap;word-break:break-word;color:var(--text);max-height:360px;overflow:auto}
+
+/* finder */
+.finder{max-width:880px;margin:0 auto;padding-bottom:72px}
+.progress{display:flex;gap:6px;margin-bottom:22px}
+.progress i{height:3px;flex:1;background:var(--line);border-radius:2px}
+.progress i.on{background:var(--gold)}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.opt{display:grid;gap:6px;text-align:left;padding:20px;border:1px solid var(--line);border-radius:4px;background:var(--paper);cursor:pointer;transition:.2s}
+.opt:hover{border-color:var(--ink)}
+.opt b{font:700 22px/1.15 var(--display);color:var(--ink)}
+.opt span{font-size:13.5px;color:var(--muted)}
+@media (max-width:700px){.opts{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.opts{grid-template-columns:1fr}}
+.picked{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.picked span{padding:6px 12px;border-radius:999px;background:var(--soft);font-size:13px;color:var(--ink)}
+
+/* about/contact */
+.prose{max-width:66ch;display:grid;gap:16px;font-size:16px}
+.prose h2{font-size:28px;margin-top:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-bottom:72px}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:36px}}
+.dl{display:grid;gap:0;border-top:1px solid var(--line)}
+.dl div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.dl dt{color:var(--muted)}
+.dl dd{margin:0;color:var(--ink);font-weight:500;min-width:0;overflow-wrap:anywhere}
+.ph{color:var(--muted);font-style:italic;font-weight:400}
+.copy{border:1px solid var(--line);background:transparent;border-radius:var(--r);padding:4px 10px;font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;margin-left:8px}
+
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(180px,220px);gap:16px;overflow-x:auto;padding-bottom:8px}
+
+/* whatsapp fab + toast */
+.fab{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:35;display:flex;align-items:center;gap:10px;height:54px;padding:0 18px 0 15px;border-radius:999px;background:#1F9D55;color:#fff;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 6px 20px rgba(20,45,78,.25);transition:transform .2s}
+.fab:hover{transform:translateY(-2px)}
+.fab svg{width:24px;height:24px}
+@media (max-width:600px){.fab span{display:none}.fab{width:54px;padding:0;justify-content:center}}
+.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:70;background:var(--ink);color:var(--paper);padding:12px 14px 12px 18px;border-radius:var(--r);display:flex;gap:14px;align-items:center;font-size:14px;opacity:0;pointer-events:none;transition:.25s;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{border:0;background:transparent;color:var(--gold);font-weight:700;cursor:pointer;font-size:14px}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="ND Lighting home"><b>ND</b><i></i><span>LIGHTING</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#shop" data-nav="shop">Shop</a>
+      <a href="#categories" data-nav="categories">Categories</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button class="iconbtn" data-open="search" aria-label="Search products"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="iconbtn" data-open="cart" aria-label="Shopping bag"><svg class="ic" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12.5h-11z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><span class="count" id="count" data-n="0">0</span></button>
+      <button class="iconbtn only-m" data-open="menu" aria-label="Open menu"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="view" tabindex="-1"></main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#home"><b>ND</b><i></i><span>LIGHTING</span></a>
+      <p>Modern lighting for homes, offices and commercial spaces. Order online and confirm everything with us on WhatsApp.</p>
+    </div>
+    <div><h4>Shop</h4><ul id="f-cats"></ul></div>
+    <div><h4>Explore</h4><ul>
+      <li><a href="#shop">All products</a></li>
+      <li><a href="#finder">Lighting Finder</a></li>
+      <li><a href="#about">About ND Lighting</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></div>
+    <div><h4>Talk to us</h4><ul>
+      <li>WhatsApp &amp; calls<br><span style="color:var(--on-night)" class="num">+234 704 518 1571</span></li>
+      <li><a href="https://wa.me/2347045181571" target="_blank" rel="noopener">Chat on WhatsApp →</a></li>
+    </ul></div>
+    <div class="base"><span>© 2026 ND Lighting</span><span>Prices in Nigerian Naira (₦)</span></div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/2347045181571" target="_blank" rel="noopener" aria-label="Chat with ND Lighting on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6a9.4 9.4 0 0 0-8.1 14.2L2.6 21.4l4.7-1.2A9.4 9.4 0 1 0 12 2.6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.7 7.5c.3-.5.6-.5.9-.5h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .5-.1.7l-.6.7c-.2.2-.2.4 0 .7.7 1.2 1.7 2.1 2.9 2.7.3.1.5.1.7-.1l.7-.8c.2-.3.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .9-.6 1.8-1.5 2-1 .3-2.5.1-4.6-1.2-2.3-1.5-3.6-3.6-3.9-4.7-.3-1 0-2.3.5-3z" fill="currentColor"/></svg>
+  <span>WhatsApp us</span>
+</a>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="d-title" aria-hidden="true"></aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+const WA = '2347045181571';
+const WA_DISPLAY = '+234 704 518 1571';
+
+/* ---------- data ---------- */
+const CATS = [
+  {id:'chandeliers',name:'Chandeliers',desc:'Statement lighting for sophisticated interiors.',hero:'aurelia'},
+  {id:'pendants',name:'Pendant Lights',desc:'Contemporary suspended lighting for tables, islands and stairwells.',hero:'orbe'},
+  {id:'ceiling',name:'Ceiling Lights',desc:'Functional and decorative fixtures that sit close to the ceiling.',hero:'eclipse'},
+  {id:'wall',name:'Wall Lights',desc:'Elegant wall-mounted lighting for corridors, bedsides and facades.',hero:'vela'},
+  {id:'led',name:'LED Lighting',desc:'Modern, energy-efficient panels and strips.',hero:'aero'},
+  {id:'outdoor',name:'Outdoor Lighting',desc:'Weather-rated fittings for gates, walls, driveways and gardens.',hero:'porto'},
+  {id:'lamps',name:'Table & Floor Lamps',desc:'Plug-in decorative lighting for everyday living.',hero:'arco'}
+];
+const ROOMS = [
+  {id:'living',name:'Living Room',desc:'Statement pieces and layered light for where people gather.'},
+  {id:'bedroom',name:'Bedroom',desc:'Soft, warm light you can bring down low at night.'},
+  {id:'dining',name:'Dining Room',desc:'Chandeliers and pendants hung low over the table.'},
+  {id:'kitchen',name:'Kitchen',desc:'Bright, even light over worktops and islands.'},
+  {id:'office',name:'Office',desc:'Glare-free light for long working hours.'},
+  {id:'outdoor',name:'Outdoor',desc:'Weather-rated fittings for gates, walls and gardens.'}
+];
+const STYLES = [
+  {id:'modern',name:'Modern',desc:'Clean geometry, integrated LED.'},
+  {id:'minimalist',name:'Minimalist',desc:'Quiet shapes that disappear into the room.'},
+  {id:'classic',name:'Classic',desc:'Candles, brass and traditional forms.'},
+  {id:'luxury',name:'Luxury',desc:'Crystal, marble and gold finishes.'},
+  {id:'contemporary',name:'Contemporary',desc:'Current designs with softer edges.'}
+];
+const BUDGETS = [
+  {id:'b1',name:'Under ₦50,000',min:0,max:50000},
+  {id:'b2',name:'₦50,000 – ₦150,000',min:50000,max:150000},
+  {id:'b3',name:'₦150,000 – ₦400,000',min:150000,max:400000},
+  {id:'b4',name:'Above ₦400,000',min:400000,max:Infinity},
+  {id:'any',name:'No fixed budget',min:0,max:Infinity}
+];
+const FIN = {
+  gold:{c:'#C5A15B',d:'#8E7036',l:'#E6CF9C',name:'Satin gold'},
+  brass:{c:'#B08D57',d:'#7E6236',l:'#D9BE8C',name:'Brushed brass'},
+  chrome:{c:'#B7BDC6',d:'#7D8590',l:'#E4E8ED',name:'Polished chrome'},
+  black:{c:'#2A2D33',d:'#15171B',l:'#59606B',name:'Matte black'},
+  white:{c:'#ECEDEF',d:'#B4B9C1',l:'#FFFFFF',name:'Matte white'},
+  bronze:{c:'#7A5A3A',d:'#4F3923',l:'#A88461',name:'Antique bronze'}
+};
+const KEL = {2700:'#FFC774',3000:'#FFD796',4000:'#FFF0D0',6500:'#DCEAFF'};
+const INSTALL = {
+  chandeliers:'Hang from a ceiling box rated for the fixture weight. Leave about 75 cm between the lowest drop and a dining table, or 210 cm clearance over walkways. We recommend a qualified electrician.',
+  pendants:'Mounts to a standard ceiling rose. The cord can be shortened during installation. Over a kitchen island, hang 75–85 cm above the worktop.',
+  ceiling:'Fixes directly to the ceiling with the mounting plate supplied. Suitable for low ceilings from 2.4 m.',
+  wall:'Mounts onto a recessed back box. Typical mounting height is 150–170 cm from the floor.',
+  led:'Fits standard 60 × 60 cm ceiling grids, or surface-mounts with the frame kit.',
+  outdoor:'Rated for exterior use. Seal cable entries and connect through an outdoor-rated junction box.',
+  lamps:'Plug-in, no installation needed. Supplied with a standard 3-pin plug.'
+};
+// [id, name, cat, price, rooms, style, art, finishes, material, dims, bulb, watt, kelvin, stock, featured, sold, ip, desc, extra]
+const P = [
+ ['aurelia','Aurelia Crystal Chandelier','chandeliers',485000,'living dining','luxury','chandelier','gold chrome','Brass-plated steel frame, K9 crystal drops','Ø80 × H65 cm, chain adjustable to 120 cm','E14 candle × 8','Up to 40 W each (5 W LED recommended)',2700,3,1,41,'','Eight candle arms on a single ring, dressed with hand-hung K9 crystal drops. Sized for living rooms and dining tables seating six to eight.'],
+ ['halo','Halo Triple Ring Chandelier','chandeliers',365000,'living dining office','modern','rings','gold black','Aluminium rings, opal acrylic diffuser','Rings Ø40 / 60 / 80 cm, drop to 150 cm','Integrated LED, dimmable','96 W',3000,5,1,33,'','Three floating rings that light from the underside. Each ring can be angled on installation for a staggered look in double-height spaces.'],
+ ['marisol','Marisol Two-Tier Chandelier','chandeliers',640000,'dining living','classic','chandelier2','gold bronze','Cast brass frame, K9 crystal drops','Ø95 × H90 cm, chain adjustable to 150 cm','E14 candle × 14','Up to 40 W each (5 W LED recommended)',2700,1,0,9,'','A two-tier chandelier for large dining rooms and entrance halls. Fourteen candle arms over two rings with long crystal drops.'],
+ ['orbe','Orbe Glass Globe Pendant','pendants',68000,'dining kitchen bedroom','contemporary','globe','brass chrome','Hand-blown clear glass, brass fittings','Ø25 cm globe, 150 cm cord','E27','Up to 60 W',2700,12,1,58,'','A clear glass globe that shows off a filament bulb. Hang one beside a bed or three in a row over a dining table.'],
+ ['nara','Nara Dome Pendant','pendants',54000,'kitchen dining office','minimalist','dome','black white gold','Spun aluminium, powder-coated finish','Ø38 × H22 cm, 150 cm cord','E27','Up to 60 W',3000,18,0,47,'','A wide, shallow dome that throws a focused pool of light downward. Well suited to kitchen islands and work tables.'],
+ ['trio','Trio Cluster Pendant','pendants',132000,'dining living','modern','cluster','brass black','Steel canopy, smoked glass globes','Canopy Ø30 cm, drops of 60 / 80 / 100 cm','G9 × 3','3 × 5 W LED',2700,6,1,22,'','Three smoked-glass globes at staggered heights from one round canopy. Works over a dining table, a stairwell or a reading corner.'],
+ ['lune','Lune Flush Ceiling Light','ceiling',46000,'bedroom kitchen office','minimalist','flush','white gold','Steel base, frosted glass diffuser','Ø35 × H12 cm','E27 × 2','2 × 40 W',4000,24,0,64,'','A low-profile frosted dish that gives soft, even light in rooms with low ceilings.'],
+ ['eclipse','Eclipse Ring Ceiling Light','ceiling',98000,'living bedroom','modern','ring','gold black white','Aluminium, silicone diffuser','Ø60 × H6 cm','Integrated LED, dimmable','48 W',3000,9,1,37,'','A single slim ring that sits just below the ceiling. Gives a clean, modern look without a hanging fixture.'],
+ ['vela','Vela Brass Wall Sconce','wall',38500,'bedroom living dining','classic','sconce','brass black','Solid brass arm, linen shade','W16 × H32 × D22 cm','E14','Up to 40 W',2700,15,1,52,'','A curved brass arm with a tapered linen shade. Use in pairs either side of a bed, mirror or doorway.'],
+ ['axis','Axis Up-Down Wall Light','wall',29000,'living office outdoor','contemporary','updown','black white','Die-cast aluminium','Ø7 × H15 cm','GU10 × 2','2 × 7 W LED',3000,30,0,71,'IP54','A compact cylinder that washes light up and down the wall. Rated for covered outdoor areas as well as indoors.'],
+ ['aero','Aero Slim LED Panel 60×60','led',24500,'office kitchen','minimalist','panel','white','Aluminium frame, PMMA light guide','60 × 60 × 1 cm','Integrated LED','40 W',4000,40,0,88,'','Flat, glare-free panel lighting for offices, shops and kitchens. Drops into a standard ceiling grid.'],
+ ['linea','Linea LED Strip Kit, 5 m','led',18500,'kitchen bedroom living','modern','strip','white','Flexible PCB, silicone coating, aluminium channel','5 m, cuttable every 5 cm','2835 LED, 120 per metre','12 W per metre, 12 V driver included',3000,0,0,95,'','Hidden light for under cabinets, shelves and ceiling coves. Cut to length and fix with the aluminium channel supplied.'],
+ ['porto','Porto Coach Lantern','outdoor',58000,'outdoor','classic','lantern','black bronze','Cast aluminium, seeded glass','W20 × H42 × D24 cm','E27','Up to 60 W',2700,11,1,39,'IP44','A traditional wall lantern for gates, porches and entrances. Seeded glass softens the bulb.'],
+ ['garde','Garde LED Bollard Light','outdoor',72000,'outdoor','contemporary','bollard','black','Marine-grade aluminium','Ø16 × H80 cm','Integrated LED','10 W',3000,2,0,14,'IP65','A louvred bollard that lights paths and driveways without glare. Fully sealed for rain and garden watering.'],
+ ['sola','Sola Ceramic Table Lamp','lamps',64000,'bedroom living office','contemporary','table','white black','Glazed ceramic base, fabric drum shade','Ø35 × H58 cm','E27','Up to 40 W',2700,8,0,29,'','A rounded ceramic base with a soft fabric drum. Sized for bedside tables and console tables.'],
+ ['arco','Arco Marble Floor Lamp','lamps',178000,'living office','luxury','arc','chrome gold','Carrara marble base, stainless steel arc','Reach 180 cm, H210 cm','E27','Up to 60 W',2700,4,1,18,'','A sweeping arc that brings light over a sofa or armchair from across the room, anchored by a solid marble base.']
+];
+const PRODUCTS = P.map((r,i)=>({id:r[0],name:r[1],cat:r[2],price:r[3],rooms:r[4].split(' '),style:r[5],art:r[6],finishes:r[7].split(' '),material:r[8],dims:r[9],bulb:r[10],watt:r[11],kelvin:r[12],stock:r[13],featured:!!r[14],sold:r[15],ip:r[16],desc:r[17],added:i}));
+const byId = Object.fromEntries(PRODUCTS.map(p=>[p.id,p]));
+const catName = id => (CATS.find(c=>c.id===id)||{}).name||id;
+
+const STATES = ['Abia','Adamawa','Akwa Ibom','Anambra','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Ekiti','Enugu','FCT Abuja','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nasarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+// Estimated delivery fees. Final fee is confirmed on WhatsApp.
+function deliveryFee(state){
+  if(!state) return null;
+  if(state==='Lagos') return 7500;
+  if(['Ogun','Oyo','Osun','Ondo','Ekiti','FCT Abuja'].includes(state)) return 12000;
+  return 18000;
+}
+
+/* ---------- helpers ---------- */
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => '₦' + Math.round(n).toLocaleString('en-NG');
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+const waLink = msg => 'https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+const I = {
+  arrow:'<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  bag:'<svg class="ic" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12.5h-11z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>',
+  x:'<svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  plus:'<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+  minus:'<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>',
+  search:'<svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  zoom:'<svg class="ic" viewBox="0 0 24 24" style="width:15px;height:15px"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>',
+  wa:'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2.6a9.4 9.4 0 0 0-8.1 14.2L2.6 21.4l4.7-1.2A9.4 9.4 0 1 0 12 2.6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.7 7.5c.3-.5.6-.5.9-.5h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .5-.1.7l-.6.7c-.2.2-.2.4 0 .7.7 1.2 1.7 2.1 2.9 2.7.3.1.5.1.7-.1l.7-.8c.2-.3.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .9-.6 1.8-1.5 2-1 .3-2.5.1-4.6-1.2-2.3-1.5-3.6-3.6-3.9-4.7-.3-1 0-2.3.5-3z" fill="currentColor"/></svg>'
+};
+
+/* ---------- fixture illustrations (placeholders until real photography) ---------- */
+let uid = 0;
+function art(p, view='main', finish, kelvin){
+  const F = FIN[finish||p.finishes[0]];
+  const g = KEL[kelvin||p.kelvin];
+  const id = 'a'+(++uid);
+  const night = view==='night' || view==='hero';
+  const bg = night ? '#142D4E' : 'var(--tile)';
+  const vb = view==='detail' ? (DETAIL[p.art]||'100 90 200 200') : '0 0 400 400';
+  const gs = night ? 1 : .55;
+  const sh = SHAPES[p.art](F,g,id,night);
+  return `<svg viewBox="${vb}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${esc(p.name)}, ${view==='detail'?'close-up':view==='night'?'lit at night':'product view'}">
+    <defs><radialGradient id="${id}g"><stop offset="0" stop-color="${g}" stop-opacity=".95"/><stop offset=".45" stop-color="${g}" stop-opacity=".35"/><stop offset="1" stop-color="${g}" stop-opacity="0"/></radialGradient>
+    <linearGradient id="${id}b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${g}" stop-opacity=".55"/><stop offset="1" stop-color="${g}" stop-opacity="0"/></linearGradient></defs>
+    <rect x="-100" y="-100" width="600" height="600" fill="${bg}"/>
+    <g class="glowlayer" opacity="${gs}">${sh.glow}</g>${sh.body}</svg>`;
+}
+const DETAIL = {chandelier:'80 120 200 200',chandelier2:'90 110 200 200',rings:'60 120 200 200',globe:'110 130 180 180',dome:'90 140 200 200',cluster:'130 140 200 200',flush:'80 0 220 160',ring:'40 40 200 160',sconce:'160 40 180 200',updown:'120 100 160 200',panel:'40 100 200 160',strip:'60 120 200 160',lantern:'110 90 180 200',bollard:'130 110 140 140',table:'100 100 200 200',arc:'240 100 160 160'};
+const glowAt = (id,cx,cy,r)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${id}g)"/>`;
+const ceiling = n => `<line x1="-100" y1="0" x2="500" y2="0" stroke="${n?'#2A4669':'#D6DAE0'}" stroke-width="2"/>`;
+function candle(x,y,F,g,s=1){
+  return `<path d="M${x-9*s} ${y}q${9*s} ${7*s} ${18*s} 0z" fill="${F.c}"/><rect x="${x-4*s}" y="${y-26*s}" width="${8*s}" height="${26*s}" rx="${1.5*s}" fill="#F6F2EA"/><ellipse cx="${x}" cy="${y-33*s}" rx="${4.5*s}" ry="${7*s}" fill="${g}"/>`;
+}
+function drops(cx,cy,rx,ry,n,len,F,offset=0){
+  let s='';
+  for(let i=0;i<n;i++){
+    const a = (i/n)*Math.PI*2 + offset, x=cx+rx*Math.cos(a), y=cy+ry*Math.sin(a)+3, L=len+((i*7)%3)*12;
+    s+=`<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${x.toFixed(1)}" y2="${(y+L).toFixed(1)}" stroke="${F.l}" stroke-width="1"/><path d="M${x.toFixed(1)} ${(y+L).toFixed(1)}l4 6-4 9-4-9z" fill="#EEF3FA" stroke="${F.d}" stroke-width=".6"/>`;
+  }
+  return s;
+}
+function ring(cx,cy,rx,ry,n,F,g,s){
+  // back candles, ring, front candles
+  let back='',front='';
+  for(let i=0;i<n;i++){const a=(i/n)*Math.PI*2+.2, x=cx+rx*Math.cos(a), y=cy+ry*Math.sin(a); const c=candle(x,y-2,F,g,s); if(Math.sin(a)<0) back+=c; else front+=c;}
+  return back+`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="${F.c}" stroke-width="${5*s}"/><ellipse cx="${cx}" cy="${cy+1.5}" rx="${rx}" ry="${ry}" fill="none" stroke="${F.d}" stroke-width="1.2" opacity=".6"/>`+front;
+}
+const SHAPES = {
+  chandelier:(F,g,id,n)=>({glow:glowAt(id,200,190,190),body:ceiling(n)+
+    `<path d="M172 0h56l-8 14h-40z" fill="${F.c}"/><line x1="200" y1="14" x2="200" y2="120" stroke="${F.d}" stroke-width="3" stroke-dasharray="7 4"/>
+     <path d="M193 118h14l7 36-7 52h-14l-7-52z" fill="${F.c}"/>`+
+     ring(200,190,118,26,8,F,g,1)+drops(200,190,118,26,16,26,F)+
+     `<ellipse cx="200" cy="250" rx="62" ry="14" fill="none" stroke="${F.c}" stroke-width="4"/>`+drops(200,250,62,14,10,30,F,.3)+
+     `<line x1="200" y1="206" x2="200" y2="290" stroke="${F.c}" stroke-width="5"/><circle cx="200" cy="296" r="8" fill="${F.c}"/><path d="M200 304l6 10-6 16-6-16z" fill="#EEF3FA" stroke="${F.d}" stroke-width=".6"/>`}),
+  chandelier2:(F,g,id,n)=>({glow:glowAt(id,200,200,200),body:ceiling(n)+
+    `<path d="M172 0h56l-8 14h-40z" fill="${F.c}"/><line x1="200" y1="14" x2="200" y2="80" stroke="${F.d}" stroke-width="3" stroke-dasharray="7 4"/>
+     <path d="M194 78h12l6 40-6 190h-12l-6-190z" fill="${F.c}"/>`+
+     ring(200,150,80,17,6,F,g,.85)+drops(200,150,80,17,12,22,F)+
+     ring(200,240,135,30,8,F,g,1)+drops(200,240,135,30,18,30,F,.2)+
+     `<circle cx="200" cy="318" r="9" fill="${F.c}"/><path d="M200 327l7 12-7 18-7-18z" fill="#EEF3FA" stroke="${F.d}" stroke-width=".6"/>`}),
+  rings:(F,g,id,n)=>({glow:glowAt(id,200,210,200),body:ceiling(n)+
+    `<rect x="180" y="0" width="40" height="8" fill="${F.c}"/>
+     <line x1="200" y1="8" x2="80" y2="168" stroke="${F.d}" stroke-width="1"/><line x1="200" y1="8" x2="320" y2="168" stroke="${F.d}" stroke-width="1"/><line x1="200" y1="8" x2="200" y2="276" stroke="${F.d}" stroke-width="1"/>
+     ${[[170,130,32],[218,96,24],[262,62,15]].map(([y,rx,ry])=>`<ellipse cx="200" cy="${y}" rx="${rx}" ry="${ry}" fill="none" stroke="${F.c}" stroke-width="10"/><ellipse cx="200" cy="${y+5}" rx="${rx}" ry="${ry}" fill="none" stroke="${g}" stroke-width="3.5"/>`).join('')}`}),
+  globe:(F,g,id,n)=>({glow:glowAt(id,200,235,170),body:ceiling(n)+
+    `<rect x="182" y="0" width="36" height="8" rx="2" fill="${F.c}"/><line x1="200" y1="8" x2="200" y2="150" stroke="${F.d}" stroke-width="2"/>
+     <rect x="188" y="150" width="24" height="22" rx="3" fill="${F.c}"/>
+     <circle cx="200" cy="235" r="72" fill="${g}" fill-opacity=".14" stroke="${F.l}" stroke-opacity=".9" stroke-width="2"/>
+     <path d="M150 205a58 58 0 0 1 36-36" stroke="#fff" stroke-opacity=".7" stroke-width="5" fill="none" stroke-linecap="round"/>
+     <line x1="200" y1="172" x2="200" y2="212" stroke="${F.d}" stroke-width="2"/><ellipse cx="200" cy="232" rx="17" ry="22" fill="${g}"/><path d="M193 226q7 12 14 0" stroke="${F.d}" stroke-width="1" fill="none"/>`}),
+  dome:(F,g,id,n)=>({glow:`<path d="M128 250L50 420h300L272 250z" fill="url(#${id}b)"/>`+glowAt(id,200,262,90),body:ceiling(n)+
+    `<rect x="182" y="0" width="36" height="8" rx="2" fill="${F.c}"/><line x1="200" y1="8" x2="200" y2="168" stroke="${F.d}" stroke-width="2"/>
+     <rect x="192" y="160" width="16" height="16" rx="2" fill="${F.d}"/>
+     <path d="M118 252Q118 174 200 174Q282 174 282 252Z" fill="${F.c}"/><path d="M118 252Q118 174 200 174" fill="none" stroke="${F.l}" stroke-width="2" opacity=".6"/>
+     <ellipse cx="200" cy="252" rx="82" ry="9" fill="${g}"/>`}),
+  cluster:(F,g,id,n)=>({glow:glowAt(id,200,240,180),body:ceiling(n)+
+    `<rect x="140" y="0" width="120" height="12" rx="3" fill="${F.c}"/>`+
+    [[150,170],[205,240],[255,200]].map(([x,y])=>`<line x1="${x}" y1="12" x2="${x}" y2="${y-38}" stroke="${F.d}" stroke-width="1.6"/><rect x="${x-8}" y="${y-42}" width="16" height="10" rx="2" fill="${F.c}"/><circle cx="${x}" cy="${y}" r="34" fill="#3A3F48" fill-opacity=".38" stroke="${F.l}" stroke-opacity=".5" stroke-width="1.5"/><circle cx="${x}" cy="${y+2}" r="12" fill="${g}"/><path d="M${x-22} ${y-12}a26 26 0 0 1 14-14" stroke="#fff" stroke-opacity=".55" stroke-width="3" fill="none" stroke-linecap="round"/>`).join('')}),
+  flush:(F,g,id,n)=>({glow:glowAt(id,200,110,190),body:ceiling(n)+
+    `<path d="M108 2h184v14Q292 96 200 98Q108 96 108 16Z" fill="#F2F3F5" stroke="${F.d}" stroke-opacity=".35"/><path d="M118 40Q140 88 200 90" stroke="#fff" stroke-width="5" fill="none" opacity=".7" stroke-linecap="round"/>
+     <rect x="104" y="2" width="192" height="14" rx="2" fill="${F.c}"/><ellipse cx="200" cy="60" rx="56" ry="18" fill="${g}" opacity=".55"/>`}),
+  ring:(F,g,id,n)=>({glow:glowAt(id,200,150,200),body:ceiling(n)+
+    `<line x1="90" y1="0" x2="90" y2="100" stroke="${F.d}" stroke-width="1"/><line x1="310" y1="0" x2="310" y2="100" stroke="${F.d}" stroke-width="1"/><line x1="200" y1="0" x2="200" y2="80" stroke="${F.d}" stroke-width="1"/>
+     <ellipse cx="200" cy="110" rx="150" ry="32" fill="none" stroke="${F.c}" stroke-width="14"/><ellipse cx="200" cy="117" rx="150" ry="32" fill="none" stroke="${g}" stroke-width="5"/>`}),
+  sconce:(F,g,id,n)=>({glow:`<path d="M218 70L250 -60L300 -60L282 70z" fill="${g}" opacity=".22"/>`+glowAt(id,248,110,150),body:
+    `<rect x="178" y="138" width="40" height="96" rx="6" fill="${F.c}"/><rect x="186" y="146" width="24" height="80" rx="4" fill="${F.d}" opacity=".25"/>
+     <path d="M210 186C250 186 252 166 250 138" stroke="${F.c}" stroke-width="7" fill="none" stroke-linecap="round"/>
+     <path d="M238 140q12 8 24 0z" fill="${F.c}"/><ellipse cx="250" cy="122" rx="7" ry="11" fill="${g}"/>
+     <path d="M218 70h64l16 62h-96z" fill="#EFE5D3"/><path d="M218 70h64l16 62h-96z" fill="${g}" opacity=".35"/><path d="M226 74l-12 54" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>`}),
+  updown:(F,g,id,n)=>({glow:`<path d="M182 150L222 150L280 -40L124 -40z" fill="url(#${id}b)"/><path d="M182 250L222 250L280 440L124 440z" fill="url(#${id}b)" transform="rotate(180 202 345)"/>`+glowAt(id,202,200,110),body:
+    `<rect x="176" y="190" width="10" height="20" fill="${F.d}"/><rect x="180" y="148" width="44" height="104" rx="5" fill="${F.c}"/><rect x="186" y="148" width="6" height="104" fill="${F.l}" opacity=".35"/>
+     <ellipse cx="202" cy="148" rx="18" ry="3" fill="${g}"/><ellipse cx="202" cy="252" rx="18" ry="3" fill="${g}"/>`}),
+  panel:(F,g,id,n)=>({glow:glowAt(id,200,230,220),body:ceiling(n)+
+    `<path d="M92 118H308L350 252H50Z" fill="${g}"/><path d="M92 118H308L350 252H50Z" fill="#fff" opacity=".35"/><path d="M92 118H308L350 252H50Z" fill="none" stroke="${n?'#CDD2D9':'#C9CED6'}" stroke-width="7" stroke-linejoin="round"/>
+     <path d="M128 140L112 230M200 118V252M272 140L288 230" stroke="#fff" stroke-opacity=".3"/>`}),
+  strip:(F,g,id,n)=>({glow:`<rect x="40" y="180" width="320" height="170" fill="url(#${id}b)"/>`,body:
+    `<rect x="40" y="160" width="320" height="18" rx="2" fill="${n?'#6E5539':'#9A7A56'}"/><path d="M90 160c-6-36 2-60 14-66h20c12 6 20 30 14 66z" fill="${n?'#3C4C61':'#C9CED6'}"/><rect x="250" y="112" width="44" height="48" rx="3" fill="${n?'#4A5A70':'#B9C0CA'}"/>
+     <line x1="48" y1="182" x2="352" y2="182" stroke="${g}" stroke-width="4" stroke-linecap="round"/>
+     <rect x="40" y="320" width="320" height="40" fill="${n?'#1C3557':'#DDE1E7'}"/><path d="M110 320c-4-30 4-44 14-48h18c10 4 18 18 14 48z" fill="${n?'#2D4767':'#BFC6D0'}"/>`}),
+  lantern:(F,g,id,n)=>({glow:glowAt(id,200,200,170),body:
+    `<rect x="186" y="50" width="28" height="80" rx="4" fill="${F.c}"/><path d="M200 96h-2" />
+     <path d="M150 140L200 104L250 140Z" fill="${F.c}"/><rect x="146" y="138" width="108" height="10" fill="${F.d}"/>
+     <rect x="156" y="148" width="88" height="110" fill="${g}" fill-opacity=".3"/><rect x="156" y="148" width="88" height="110" fill="none" stroke="${F.c}" stroke-width="7"/>
+     <line x1="200" y1="148" x2="200" y2="258" stroke="${F.c}" stroke-width="4"/><ellipse cx="200" cy="200" rx="14" ry="20" fill="${g}"/>
+     <path d="M150 258h100l-12 14h-76z" fill="${F.c}"/><circle cx="200" cy="282" r="6" fill="${F.c}"/>`}),
+  bollard:(F,g,id,n)=>({glow:`<ellipse cx="200" cy="342" rx="150" ry="22" fill="url(#${id}g)"/>`+glowAt(id,200,170,90),body:
+    `<line x1="-100" y1="342" x2="500" y2="342" stroke="${n?'#2A4669':'#C9CED6'}" stroke-width="2"/>
+     <rect x="176" y="148" width="48" height="194" rx="3" fill="${F.c}"/><rect x="182" y="148" width="7" height="194" fill="${F.l}" opacity=".35"/>
+     ${[160,172,184].map(y=>`<rect x="176" y="${y}" width="48" height="6" fill="${g}"/>`).join('')}
+     <rect x="170" y="138" width="60" height="12" rx="2" fill="${F.d}"/>`}),
+  table:(F,g,id,n)=>({glow:glowAt(id,200,170,180)+`<path d="M122 222L60 330h280L278 222z" fill="url(#${id}b)"/>`,body:
+    `<line x1="-100" y1="332" x2="500" y2="332" stroke="${n?'#2A4669':'#C9CED6'}" stroke-width="2"/>
+     <path d="M172 330Q146 282 182 246h36Q254 282 228 330Z" fill="${F.c}" stroke="${F.d}" stroke-opacity=".4"/><path d="M178 316Q162 284 186 256" stroke="#fff" stroke-opacity=".45" stroke-width="5" fill="none" stroke-linecap="round"/>
+     <rect x="196" y="214" width="8" height="34" fill="${n?'#B7BDC6':'#9AA1AB'}"/>
+     <path d="M142 128h116l20 96H122z" fill="#F4ECDF"/><path d="M142 128h116l20 96H122z" fill="${g}" opacity=".35"/><ellipse cx="200" cy="224" rx="78" ry="5" fill="${g}"/>`}),
+  arc:(F,g,id,n)=>({glow:`<path d="M296 190L230 360h200L366 190z" fill="url(#${id}b)"/>`+glowAt(id,330,200,130),body:
+    `<line x1="-100" y1="362" x2="500" y2="362" stroke="${n?'#2A4669':'#C9CED6'}" stroke-width="2"/>
+     <rect x="90" y="334" width="84" height="28" rx="3" fill="#ECEDEE" stroke="#C3C7CD"/><path d="M104 344l22 10M140 340l18 14" stroke="#BFC4CB" stroke-width="1"/>
+     <path d="M132 334C132 80 300 30 330 152" stroke="${F.c}" stroke-width="5" fill="none" stroke-linecap="round"/>
+     <path d="M290 192Q290 152 330 152Q370 152 370 192Z" fill="${F.c}"/><ellipse cx="330" cy="192" rx="40" ry="5" fill="${g}"/>`})
+};
+
+/* ---------- state ---------- */
+let cart = store.get('nd-cart',[]).filter(l=>byId[l.id]);
+let recent = store.get('nd-recent',[]).filter(id=>byId[id]);
+const shop = {q:'',cat:'all',room:'all',price:'all',sort:'featured',stock:false};
+let finder = {room:null,style:null,budget:null};
+let pdp = {finish:null,view:'main',qty:1};
+let lastOrder = store.get('nd-last-order',null);
+let heroK = 2700;
+
+const saveCart = ()=>{store.set('nd-cart',cart);const n=cart.reduce((s,l)=>s+l.qty,0);const c=$('#count');c.textContent=n;c.dataset.n=n;};
+const subtotal = ()=>cart.reduce((s,l)=>s+byId[l.id].price*l.qty,0);
+function addToCart(id,finish,qty=1){
+  const p=byId[id]; if(!p||p.stock===0) return;
+  finish = finish||p.finishes[0];
+  const line = cart.find(l=>l.id===id&&l.finish===finish);
+  if(line) line.qty=Math.min(line.qty+qty,p.stock); else cart.push({id,finish,qty:Math.min(qty,p.stock)});
+  saveCart();
+  toast(`${p.name} added to your bag`, 'View bag', ()=>openDrawer('cart'));
+  if($('#drawer').dataset.kind==='cart') openDrawer('cart');
+}
+function pushRecent(id){recent=[id,...recent.filter(x=>x!==id)].slice(0,8);store.set('nd-recent',recent);}
+
+function avail(p){
+  if(p.stock===0) return '<span class="avail out">Out of stock</span>';
+  if(p.stock<=3) return `<span class="avail low">Only ${p.stock} left</span>`;
+  return '<span class="avail">In stock</span>';
+}
+function card(p){
+  return `<article class="card">
+    <button class="card-media" data-qv="${p.id}" aria-label="Quick view: ${esc(p.name)}">${art(p)}<span class="qv-hint">Quick view</span></button>
+    <div class="card-body">
+      <a class="card-name" href="#product-${p.id}">${esc(p.name)}</a>
+      <div class="card-meta"><span class="price">${fmt(p.price)}</span>${avail(p)}</div>
+      <button class="btn-add" data-add="${p.id}" ${p.stock===0?'disabled':''}>${p.stock?I.bag+'Add to bag':'Out of stock'}</button>
+    </div></article>`;
+}
+
+/* ---------- views ---------- */
+function vHome(){
+  const feat = PRODUCTS.filter(p=>p.featured);
+  const cats = CATS.map(c=>{const p=byId[c.hero];const n=PRODUCTS.filter(x=>x.cat===c.id).length;
+    return `<a class="cat" href="#category-${c.id}">${art(p,c.id==='chandeliers'||c.id==='outdoor'?'night':'main')}<span class="lbl"><b>${c.name}</b><span>${n} ${n===1?'piece':'pieces'}</span></span></a>`}).join('');
+  const rooms = ROOMS.map(r=>{const n=PRODUCTS.filter(p=>p.rooms.includes(r.id)).length;
+    return `<a class="room" href="#room-${r.id}"><b>${r.name}</b><p>${r.desc}</p><span class="go"><span class="mono muted">${n} pieces</span>${I.arrow}</span></a>`}).join('');
+  const rec = recent.length?`<section class="sec"><div class="wrap"><div class="sec-head"><h2>Recently viewed</h2></div><div class="strip">${recent.map(id=>card(byId[id])).join('')}</div></div></section>`:'';
+  return `
+  <section class="hero"><div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">ND Lighting · Modern lighting showroom</span>
+      <h1>Bring your space <em>to light.</em></h1>
+      <p>Discover beautiful lighting pieces designed to transform your home, office and commercial spaces.</p>
+      <div class="row"><a class="btn btn-gold" href="#shop">Explore collection</a><a class="btn btn-line" href="#finder">Find your light</a></div>
+      <p class="mono muted">Order online · Confirm on WhatsApp · Delivery across Nigeria</p>
+    </div>
+    <figure class="scene dim" id="scene" style="margin:0">
+      <div id="hero-art">${art(byId.aurelia,'hero',null,heroK)}</div>
+      <figcaption class="scene-bar">
+        <a href="#product-aurelia"><b>Aurelia Crystal Chandelier</b> · <span class="num">${fmt(485000)}</span> →</a>
+        <span class="seg" role="group" aria-label="Preview colour temperature">${[2700,3000,4000].map(k=>`<button data-k="${k}" aria-pressed="${k===heroK}">${k}K</button>`).join('')}</span>
+      </figcaption>
+    </figure>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">The collection</span><h2>Shop by category</h2></div><a class="link" href="#categories">All categories ${I.arrow}</a></div>
+    <div class="cats">${cats}</div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Most asked for</span><h2>Featured collection</h2></div><a class="link" href="#shop">View all ${PRODUCTS.length} products ${I.arrow}</a></div>
+    <div class="grid">${feat.map(card).join('')}</div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div><span class="eyebrow" style="color:var(--gold)">Lighting Finder</span><h2>Know the look, not the name?</h2><p>Tell us the room, the style and your budget. We'll match you with fittings that suit the space.</p><div class="row" style="margin-top:22px"><a class="btn btn-gold" href="#finder">Start the Lighting Finder</a></div></div>
+    <div class="q"><div><b>01</b>Where will the light go?</div><div><b>02</b>What style do you prefer?</div><div><b>03</b>What's your budget?</div></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:72px"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Shop by space</span><h2>Start with the room</h2></div></div>
+    <div class="rooms">${rooms}</div>
+  </div></section>
+
+  <section class="sec"><div class="wrap why">
+    <div><span class="eyebrow">Why ND Lighting</span><h2 style="font-size:clamp(28px,3.4vw,40px);margin:8px 0 28px">A showroom you can shop from your phone</h2>
+      <div class="points">
+        <div><h3>Carefully selected pieces</h3><p>Every fitting is chosen for build quality, finish and how it looks once it's switched on.</p></div>
+        <div><h3>Full specifications</h3><p>Dimensions, bulb type, wattage and colour temperature on every product, so you can buy with confidence.</p></div>
+        <div><h3>Convenient ordering</h3><p>Place your order on the site and confirm payment and delivery with a real person on WhatsApp.</p></div>
+        <div><h3>Dedicated support</h3><p>Ask about measurements, installation or availability before you pay. We'll reply on WhatsApp.</p></div>
+      </div></div>
+    <div><span class="eyebrow">How ordering works</span><ol class="steps" style="margin-top:14px">
+      <li><div><b>Add pieces to your bag</b><span>Choose a finish and quantity for each fitting.</span></div></li>
+      <li><div><b>Enter your delivery details</b><span>Name, phone number and address. No account needed.</span></div></li>
+      <li><div><b>Send the order on WhatsApp</b><span>Your order summary opens in WhatsApp, ready to send.</span></div></li>
+      <li><div><b>Confirm and pay</b><span>We confirm availability, delivery fee and payment details with you.</span></div></li>
+    </ol></div>
+  </div></section>
+  ${rec}
+  <section class="cta"><div class="wrap">
+    <span class="eyebrow">ND Lighting</span>
+    <h2 style="margin-top:12px">Let's find the perfect light for <em>your space.</em></h2>
+    <div class="row"><a class="btn btn-gold" href="#shop">Explore our collection</a><a class="btn btn-line" href="${waLink('Hello ND Lighting! I need help choosing lighting for my space.')}" target="_blank" rel="noopener">${I.wa}Ask on WhatsApp</a></div>
+  </div></section>`;
+}
+
+function filtered(){
+  let list = PRODUCTS.filter(p=>{
+    if(shop.cat!=='all'&&p.cat!==shop.cat) return false;
+    if(shop.room!=='all'&&!p.rooms.includes(shop.room)) return false;
+    if(shop.stock&&p.stock===0) return false;
+    if(shop.price!=='all'){const b=BUDGETS.find(b=>b.id===shop.price);if(p.price<b.min||p.price>=b.max) return false;}
+    if(shop.q){const q=shop.q.toLowerCase();if(!(p.name+' '+catName(p.cat)+' '+p.material+' '+p.style+' '+p.rooms.join(' ')).toLowerCase().includes(q)) return false;}
+    return true;
+  });
+  const s={featured:(a,b)=>(b.featured-a.featured)||(b.sold-a.sold),newest:(a,b)=>b.added-a.added,low:(a,b)=>a.price-b.price,high:(a,b)=>b.price-a.price,best:(a,b)=>b.sold-a.sold}[shop.sort];
+  return list.sort(s);
+}
+function vShop(ctx){
+  let head;
+  if(ctx&&ctx.type==='cat'){const c=CATS.find(x=>x.id===ctx.id);
+    head=`<div class="banner"><div><div class="crumbs" style="color:var(--on-night-muted)"><a href="#home" style="color:inherit">Home</a>/<a href="#categories" style="color:inherit">Categories</a></div><span class="eyebrow">Category</span><h1>${c.name}</h1><p>${c.desc}</p></div>${art(byId[c.hero],'night')}</div>`;
+  } else if(ctx&&ctx.type==='room'){const r=ROOMS.find(x=>x.id===ctx.id);
+    head=`<div class="phead" style="padding-top:8px"><div class="crumbs"><a href="#home">Home</a>/<span>Shop by space</span></div><span class="eyebrow">Shop by space</span><h1>${r.name}</h1><p class="muted">${r.desc}</p></div>`;
+  } else head=`<div class="phead" style="padding-top:8px"><div class="crumbs"><a href="#home">Home</a>/<span>Shop</span></div><h1>All lighting</h1><p class="muted">${PRODUCTS.length} fittings across ${CATS.length} categories. Tap any image for a quick look.</p></div>`;
+  const chips = [{id:'all',name:'All'}].concat(CATS).map(c=>`<button class="chip" data-cat="${c.id}" aria-pressed="${shop.cat===c.id}">${c.name}</button>`).join('');
+  return `<div class="wrap" style="padding-top:24px">${head}
+    <div class="chips" role="group" aria-label="Category">${chips}</div>
+    <div class="filters">
+      <div class="search"><label for="f-q" class="sr">Search products</label>${I.search}<input id="f-q" class="input" type="search" placeholder="Search by name, material or room" value="${esc(shop.q)}"></div>
+      <label for="f-room" class="sr">Room</label><select id="f-room" class="input"><option value="all">Any room</option>${ROOMS.map(r=>`<option value="${r.id}" ${shop.room===r.id?'selected':''}>${r.name}</option>`).join('')}</select>
+      <label for="f-price" class="sr">Price</label><select id="f-price" class="input"><option value="all">Any price</option>${BUDGETS.filter(b=>b.id!=='any').map(b=>`<option value="${b.id}" ${shop.price===b.id?'selected':''}>${b.name}</option>`).join('')}</select>
+      <label for="f-sort" class="sr">Sort</label><select id="f-sort" class="input">${[['featured','Sort: Featured'],['best','Bestselling'],['newest','Newest'],['low','Price: low to high'],['high','Price: high to low']].map(([v,t])=>`<option value="${v}" ${shop.sort===v?'selected':''}>${t}</option>`).join('')}</select>
+      <label class="check"><input id="f-stock" type="checkbox" ${shop.stock?'checked':''}> In stock only</label>
+    </div>
+    <div id="results"></div></div><div style="height:72px"></div>`;
+}
+function renderResults(){
+  const el=$('#results'); if(!el) return;
+  const list=filtered();
+  el.innerHTML = list.length ? `<div class="result-line"><span class="num">${list.length} ${list.length===1?'product':'products'}</span></div><div class="grid">${list.map(card).join('')}</div>`
+   : `<div class="empty"><h3>No lighting matches those filters</h3><p class="muted">Try a different price range or room, or ask us on WhatsApp. We can often source a specific piece.</p><div class="row" style="justify-content:center"><button class="btn btn-line" data-reset>Clear filters</button><a class="btn btn-wa" href="${waLink('Hello ND Lighting! I am looking for: '+(shop.q||'a specific light'))}" target="_blank" rel="noopener">${I.wa}Ask on WhatsApp</a></div></div>`;
+}
+
+function vCategories(){
+  return `<div class="wrap"><div class="phead"><div class="crumbs"><a href="#home">Home</a>/<span>Categories</span></div><h1>Categories</h1><p class="muted">Browse by type of fitting. Not sure what you need? Try <a href="#finder" class="link">the Lighting Finder</a>.</p></div>
+    <div class="cats" style="margin-bottom:72px">${CATS.map(c=>{const n=PRODUCTS.filter(x=>x.cat===c.id).length;return `<a class="cat" href="#category-${c.id}">${art(byId[c.hero],'night')}<span class="lbl"><b>${c.name}</b><span>${n} ${n===1?'piece':'pieces'}</span></span></a>`}).join('')}</div></div>`;
+}
+
+function specRows(p,finish){
+  return [['Dimensions',p.dims],['Material',p.material],['Finish',p.finishes.map(f=>FIN[f].name).join(', ')],['Bulb type',p.bulb],['Wattage',p.watt],['Colour temperature',p.kelvin+' K ('+(p.kelvin<=2700?'warm white':p.kelvin<=3000?'soft white':'neutral white')+')'],p.ip?['Weather rating',p.ip]:null,['Suits',p.rooms.map(r=>ROOMS.find(x=>x.id===r).name).join(', ')]].filter(Boolean).map(([k,v])=>`<tr><th scope="row">${k}</th><td>${esc(v)}</td></tr>`).join('');
+}
+function vProduct(id){
+  const p=byId[id]; if(!p) return vMissing();
+  pushRecent(id);
+  if(!pdp.finish||!p.finishes.includes(pdp.finish)) pdp.finish=p.finishes[0];
+  const comp = PRODUCTS.filter(x=>x.id!==p.id&&x.cat!==p.cat&&x.rooms.some(r=>p.rooms.includes(r))).sort((a,b)=>(b.style===p.style)-(a.style===p.style)||b.sold-a.sold).slice(0,4);
+  const rec = recent.filter(x=>x!==id).slice(0,6);
+  return `<div class="wrap" style="padding-top:24px">
+    <div class="crumbs"><a href="#home">Home</a>/<a href="#category-${p.cat}">${catName(p.cat)}</a>/<span>${esc(p.name)}</span></div>
+    <div class="pdp">
+      <div class="gallery">
+        <div class="stage" id="stage" role="button" tabindex="0" aria-label="Zoom image">${art(p,pdp.view,pdp.finish)}<span class="hint">${I.zoom}<span id="zl">Click to zoom</span></span></div>
+        <div class="thumbs" role="group" aria-label="Views">${[['main','Product'],['detail','Close-up'],['night','Lit at night']].map(([v,t])=>`<button class="thumb" data-view="${v}" aria-pressed="${pdp.view===v}" aria-label="${t}">${art(p,v,pdp.finish)}<span>${t}</span></button>`).join('')}</div>
+      </div>
+      <div class="info">
+        <div><span class="eyebrow">${catName(p.cat)}</span><h1 style="margin-top:8px">${esc(p.name)}</h1></div>
+        <div class="row" style="justify-content:space-between"><span class="price">${fmt(p.price)}</span>${avail(p)}</div>
+        <p>${esc(p.desc)}</p>
+        <div><div class="opt-label">Finish: <span id="fin-name">${FIN[pdp.finish].name}</span></div>
+          <div class="swatches" role="group" aria-label="Finish">${p.finishes.map(f=>`<button class="sw" data-finish="${f}" aria-pressed="${pdp.finish===f}" aria-label="${FIN[f].name}" title="${FIN[f].name}"><i style="background:${FIN[f].c}"></i></button>`).join('')}</div></div>
+        <div class="buy">
+          <div class="stepper" aria-label="Quantity"><button data-pq="-1" aria-label="Decrease quantity">${I.minus}</button><output id="pq" class="num">${pdp.qty}</output><button data-pq="1" aria-label="Increase quantity">${I.plus}</button></div>
+          <button class="btn btn-gold" data-padd ${p.stock===0?'disabled':''}>${I.bag}${p.stock?'Add to bag':'Out of stock'}</button>
+          <button class="btn btn-line" data-buynow ${p.stock===0?'disabled':''}>Buy now</button>
+          <a class="btn btn-wa" id="p-wa" href="${waLink(`Hello, I'm interested in the ${p.name} (${FIN[pdp.finish].name}, ${fmt(p.price)}). Please provide more information.`)}" target="_blank" rel="noopener">${I.wa}${p.stock?'Enquire on WhatsApp':'Ask when it\'s back in stock'}</a>
+        </div>
+        <table class="specs"><caption class="sr">Specifications</caption>${specRows(p)}</table>
+        <div class="note"><b>Installation.</b> ${INSTALL[p.cat]}</div>
+      </div>
+    </div>
+    ${comp.length?`<section style="padding-bottom:56px"><div class="sec-head"><div><span class="eyebrow">Complete your space</span><h2>Pairs well with</h2></div></div><div class="grid">${comp.map(card).join('')}</div></section>`:''}
+    ${rec.length?`<section style="padding-bottom:72px"><div class="sec-head"><h2>Recently viewed</h2></div><div class="strip">${rec.map(x=>card(byId[x])).join('')}</div></section>`:''}
+  </div>`;
+}
+
+function vFinder(){
+  const step = !finder.room?1:!finder.style?2:!finder.budget?3:4;
+  const prog = `<div class="progress">${[1,2,3].map(i=>`<i class="${i<=step?'on':''}"></i>`).join('')}</div>`;
+  const picked = [finder.room&&ROOMS.find(r=>r.id===finder.room).name,finder.style&&STYLES.find(s=>s.id===finder.style).name,finder.budget&&BUDGETS.find(b=>b.id===finder.budget).name].filter(Boolean);
+  let body;
+  if(step===1) body=`<h2 style="font-size:32px;margin-bottom:20px">Where do you want to install your lighting?</h2><div class="opts">${ROOMS.map(r=>`<button class="opt" data-f="room" data-v="${r.id}"><b>${r.name}</b><span>${r.desc}</span></button>`).join('')}</div>`;
+  else if(step===2) body=`<h2 style="font-size:32px;margin-bottom:20px">What style do you prefer?</h2><div class="opts">${STYLES.map(s=>`<button class="opt" data-f="style" data-v="${s.id}"><b>${s.name}</b><span>${s.desc}</span></button>`).join('')}</div>`;
+  else if(step===3) body=`<h2 style="font-size:32px;margin-bottom:20px">What's your budget per piece?</h2><div class="opts">${BUDGETS.map(b=>`<button class="opt" data-f="budget" data-v="${b.id}"><b>${b.name}</b></button>`).join('')}</div>`;
+  else{
+    const b=BUDGETS.find(x=>x.id===finder.budget);
+    const near={modern:['contemporary','minimalist'],contemporary:['modern','minimalist'],minimalist:['modern','contemporary'],classic:['luxury'],luxury:['classic']};
+    const scored=PRODUCTS.filter(p=>p.rooms.includes(finder.room)).map(p=>({p,s:(p.style===finder.style?3:near[finder.style].includes(p.style)?1:0)+(p.price>=b.min&&p.price<b.max?3:0)+(p.stock?1:0)})).sort((a,c)=>c.s-a.s||c.p.sold-a.p.sold);
+    const best=scored.filter(x=>x.s>=6), close=scored.filter(x=>x.s<6).slice(0,best.length?4:6);
+    body=`<h2 style="font-size:32px">${best.length?`${best.length} ${best.length===1?'piece matches':'pieces match'} your space`:'No exact matches, but these come close'}</h2>
+      <p class="muted" style="margin:8px 0 24px">Matched on room, style and budget. Want a second opinion? <a class="link" href="${waLink(`Hello ND Lighting! I used the Lighting Finder: ${picked.join(', ')}. Can you recommend something?`)}" target="_blank" rel="noopener">Ask us on WhatsApp</a></p>
+      ${best.length?`<div class="grid">${best.map(x=>card(x.p)).join('')}</div>`:''}
+      ${close.length?`<h3 style="font-size:24px;margin:40px 0 18px">${best.length?'Also worth a look':'Closest options for this room'}</h3><div class="grid">${close.map(x=>card(x.p)).join('')}</div>`:''}`;
+  }
+  return `<div class="wrap"><div class="phead"><div class="crumbs"><a href="#home">Home</a>/<span>Lighting Finder</span></div><span class="eyebrow">Lighting Finder${step<4?` · Step ${step} of 3`:''}</span></div>
+    <div class="finder" style="${step===4?'max-width:none':''}">${step<4?prog:''}${picked.length?`<div class="picked">${picked.map(x=>`<span>${x}</span>`).join('')}${step>1?`<button class="rm" data-frestart>Start again</button>`:''}</div>`:''}${body}</div></div>`;
+}
+
+function vCheckout(){
+  if(!cart.length) return `<div class="wrap"><div class="phead"><h1>Checkout</h1></div><div class="empty" style="margin-bottom:72px"><h3>Your bag is empty</h3><p class="muted">Add a few pieces, then come back here to send your order.</p><a class="btn btn-gold" href="#shop">Browse lighting</a></div></div>`;
+  const d = store.get('nd-details',{});
+  const f=(id,label,type='text',full=false,extra='')=>`<div class="field ${full?'full':''}" id="w-${id}"><label for="c-${id}">${label}</label><input class="input" id="c-${id}" name="${id}" type="${type}" value="${esc(d[id]||'')}" ${extra}><span class="err" id="e-${id}"></span></div>`;
+  return `<div class="wrap"><div class="phead"><div class="crumbs"><a href="#home">Home</a>/<span>Checkout</span></div><h1>Checkout</h1><p class="muted">No account needed. Your order opens in WhatsApp so you can confirm it with us.</p></div>
+  <div class="co">
+    <form id="co-form" novalidate>
+      <div class="form">
+        <h2 class="full" style="font-size:22px">Your details</h2>
+        ${f('name','Full name','text',true,'autocomplete="name" required')}
+        ${f('phone','Phone number','tel',false,'autocomplete="tel" inputmode="tel" placeholder="080X XXX XXXX" required')}
+        ${f('email','Email (optional)','email',false,'autocomplete="email"')}
+        <h2 class="full" style="font-size:22px;margin-top:14px">Delivery</h2>
+        ${f('address','Delivery address','text',true,'autocomplete="street-address" placeholder="House number, street, area" required')}
+        <div class="field" id="w-state"><label for="c-state">State</label><select class="input" id="c-state" name="state" required><option value="">Select state</option>${STATES.map(s=>`<option ${d.state===s?'selected':''}>${s}</option>`).join('')}</select><span class="err" id="e-state"></span></div>
+        ${f('city','City / town','text',false,'autocomplete="address-level2" required')}
+        <div class="field full"><label for="c-notes">Notes (optional)</label><textarea class="input" id="c-notes" name="notes" placeholder="Ceiling height, preferred delivery day, installation help…">${esc(d.notes||'')}</textarea></div>
+        <h2 class="full" style="font-size:22px;margin-top:14px">Payment</h2>
+        <div class="pay full">
+          <label class="payopt on"><input type="radio" name="pay" checked><span><b>Confirm on WhatsApp, then pay</b><span>We confirm stock and the delivery fee first, then send bank transfer details. Nothing is charged on this page.</span></span></label>
+          <div class="payopt off"><input type="radio" disabled aria-label="Pay online with card (coming soon)"><span><b>Pay online with card</b><span>Coming soon.</span></span></div>
+        </div>
+        <button class="btn btn-gold btn-block full" type="submit" style="margin-top:8px">${I.wa}Place order on WhatsApp</button>
+        <p class="full mono muted" style="text-align:center">WhatsApp opens with your order written out. You press send.</p>
+      </div>
+    </form>
+    <aside class="summary" id="co-sum"></aside>
+  </div></div>`;
+}
+function renderSummary(){
+  const el=$('#co-sum'); if(!el) return;
+  const st=$('#c-state')?$('#c-state').value:'', fee=deliveryFee(st), sub=subtotal();
+  el.innerHTML=`<h2>Order summary</h2>${cart.map(l=>{const p=byId[l.id];return `<div class="line"><div class="th">${art(p,'main',l.finish)}</div><div><a href="#product-${p.id}">${esc(p.name)}</a><div class="sub">${FIN[l.finish].name} · Qty ${l.qty}</div></div><span class="num">${fmt(p.price*l.qty)}</span></div>`}).join('')}
+    <div class="sumrow"><span>Subtotal</span><span class="num">${fmt(sub)}</span></div>
+    <div class="sumrow"><span>Delivery${st?' to '+esc(st):''} <span class="muted">(estimate)</span></span><span class="num">${fee==null?'Select state':fmt(fee)}</span></div>
+    <div class="sumrow total"><span>Estimated total</span><span class="num">${fmt(sub+(fee||0))}</span></div>
+    <p class="mono muted" style="font-size:11.5px">Delivery fee is confirmed on WhatsApp before you pay.</p>`;
+}
+function orderMessage(o){
+  const items=o.items.map((l,i)=>{const p=byId[l.id];return `${i+1}. ${p.name} (${FIN[l.finish].name})${l.qty>1?` × ${l.qty} — ${fmt(p.price)} each`:` — ${fmt(p.price)}`}`}).join('\n');
+  const c=o.customer;
+  return `Hello ND Lighting!\n\nI would like to place an order.\n\nOrder Reference: ${o.ref}\n\nORDER DETAILS:\n${items}\n\nSubtotal: ${fmt(o.subtotal)}\nEstimated delivery (${c.state}): ${fmt(o.delivery)}\nEstimated total: ${fmt(o.subtotal+o.delivery)}\n\nCUSTOMER DETAILS:\nName: ${c.name}\nPhone: ${c.phone}${c.email?`\nEmail: ${c.email}`:''}\nDelivery Address: ${c.address}, ${c.city}, ${c.state}${c.notes?`\nNotes: ${c.notes}`:''}\n\nPlease confirm the availability and delivery arrangements.\n\nThank you.`;
+}
+function submitOrder(form){
+  const v=k=>(form.elements[k].value||'').trim();
+  const data={name:v('name'),phone:v('phone'),email:v('email'),address:v('address'),state:v('state'),city:v('city'),notes:v('notes')};
+  const errs={};
+  if(data.name.length<2) errs.name='Enter your full name.';
+  const digits=data.phone.replace(/\D/g,'');
+  if(!(/^0\d{10}$/.test(digits)||/^234\d{10}$/.test(digits))) errs.phone='Enter an 11-digit number like 08012345678, or start with +234.';
+  if(data.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errs.email='Check the email address, or leave it blank.';
+  if(data.address.length<6) errs.address='Enter a street address we can deliver to.';
+  if(!data.state) errs.state='Choose your state.';
+  if(data.city.length<2) errs.city='Enter your city or town.';
+  ['name','phone','email','address','state','city'].forEach(k=>{$('#w-'+k).classList.toggle('bad',!!errs[k]);$('#e-'+k).textContent=errs[k]||''});
+  store.set('nd-details',{...data});
+  const first=Object.keys(errs)[0]; if(first){$('#c-'+first).focus();return;}
+  const d=new Date(), ref='ND-'+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(Math.floor(1000+Math.random()*9000));
+  const o={ref,date:d.toISOString(),items:cart.map(l=>({...l})),subtotal:subtotal(),delivery:deliveryFee(data.state),customer:data};
+  o.message=orderMessage(o);
+  lastOrder=o; store.set('nd-last-order',o);
+  const all=store.get('nd-orders',[]); all.unshift(o); store.set('nd-orders',all.slice(0,20));
+  cart=[]; saveCart();
+  location.hash='order';
+}
+function vOrder(){
+  if(!lastOrder) return vMissing();
+  const o=lastOrder;
+  return `<div class="wrap"><div class="done">
+    <span class="eyebrow">Order ready to send</span>
+    <div class="ref">${o.ref}</div>
+    <h1 style="font-size:clamp(28px,3.6vw,40px)">One last step: send it on WhatsApp</h1>
+    <p>Tap the button below. WhatsApp opens with your order already written. Press send, and we'll reply to confirm availability, the delivery fee and payment details.</p>
+    <div class="row"><a class="btn btn-wa" href="${waLink(o.message)}" target="_blank" rel="noopener">${I.wa}Send order on WhatsApp</a><button class="btn btn-line" data-copy="msg">Copy order text</button></div>
+    <p class="muted" style="font-size:13.5px">If WhatsApp doesn't open, copy the order text and send it to <b class="num" style="color:var(--ink)">${WA_DISPLAY}</b>.</p>
+    <pre class="msg" id="msg">${esc(o.message)}</pre>
+    <div class="row"><a class="link" href="#shop">Continue shopping ${I.arrow}</a></div>
+  </div></div>`;
+}
+function vAbout(){
+  return `<div class="wrap"><div class="phead"><div class="crumbs"><a href="#home">Home</a>/<span>About</span></div><span class="eyebrow">About us</span><h1>Modern lighting.<br>Beautiful spaces.</h1></div>
+  <div class="two"><div class="prose">
+    <p>ND Lighting brings the experience of a lighting showroom to your phone. We select chandeliers, pendants, ceiling and wall lights, LED fittings, outdoor lighting and lamps for homes, offices and commercial spaces across Nigeria.</p>
+    <p>Lighting is hard to buy from a picture. That's why every product here lists its dimensions, bulb type, wattage and colour temperature, and why every order is confirmed by a person on WhatsApp before you pay.</p>
+    <h2>What we specialise in</h2>
+    <p>Statement chandeliers for living and dining rooms, layered lighting for bedrooms and kitchens, glare-free LED for offices, and weather-rated fittings for gates, walls and gardens.</p>
+    <h2>Our quality commitment</h2>
+    <p>We check finish, wiring and fittings before dispatch. If something arrives damaged, message us on WhatsApp with photos and we'll put it right.</p>
+  </div>
+  <div><dl class="dl">
+    <div><dt>Showroom</dt><dd class="ph">Add showroom address</dd></div>
+    <div><dt>Opening hours</dt><dd class="ph">Add opening hours</dd></div>
+    <div><dt>WhatsApp</dt><dd class="num">${WA_DISPLAY}</dd></div>
+    <div><dt>Delivery</dt><dd>Nationwide, fee confirmed per order</dd></div>
+  </dl><div class="row" style="margin-top:24px"><a class="btn btn-gold" href="#shop">Browse the collection</a><a class="btn btn-line" href="#contact">Contact us</a></div></div></div></div>`;
+}
+function vContact(){
+  return `<div class="wrap"><div class="phead"><div class="crumbs"><a href="#home">Home</a>/<span>Contact</span></div><span class="eyebrow">Contact</span><h1>Talk to us</h1><p class="muted">Questions about sizes, installation or delivery? WhatsApp is the fastest way to reach us.</p></div>
+  <div class="two">
+    <div><dl class="dl">
+      <div><dt>WhatsApp</dt><dd><span class="num" id="wa-num">${WA_DISPLAY}</span><button class="copy" data-copy="wa-num">Copy</button></dd></div>
+      <div><dt>Phone</dt><dd class="num">${WA_DISPLAY}</dd></div>
+      <div><dt>Email</dt><dd class="ph">Add business email</dd></div>
+      <div><dt>Location</dt><dd class="ph">Add showroom address</dd></div>
+      <div><dt>Hours</dt><dd class="ph">Add opening hours</dd></div>
+    </dl>
+    <a class="btn btn-wa" style="margin-top:24px" href="${waLink('Hello ND Lighting! I have a question.')}" target="_blank" rel="noopener">${I.wa}Chat on WhatsApp</a></div>
+    <form id="ct-form" novalidate class="form" style="align-content:start">
+      <h2 class="full" style="font-size:22px">Send a message</h2>
+      <div class="field" id="w-ct-name"><label for="ct-name">Name</label><input class="input" id="ct-name" autocomplete="name"><span class="err" id="e-ct-name"></span></div>
+      <div class="field"><label for="ct-phone">Phone (optional)</label><input class="input" id="ct-phone" type="tel" autocomplete="tel"></div>
+      <div class="field full" id="w-ct-msg"><label for="ct-msg">Message</label><textarea class="input" id="ct-msg" placeholder="e.g. I need four wall lights for a corridor, about 9 m long."></textarea><span class="err" id="e-ct-msg"></span></div>
+      <button class="btn btn-ink full" type="submit">Prepare WhatsApp message</button>
+      <div class="full" id="ct-out"></div>
+    </form>
+  </div></div>`;
+}
+function vMissing(){return `<div class="wrap"><div class="empty" style="margin-block:72px"><h3>That page isn't here</h3><p class="muted">The product may have been removed, or the link is incomplete.</p><a class="btn btn-gold" href="#shop">Browse all lighting</a></div></div>`}
+
+/* ---------- drawer ---------- */
+let lastFocus=null;
+function openDrawer(kind,id){
+  const d=$('#drawer'); lastFocus = d.classList.contains('on')?lastFocus:document.activeElement;
+  d.dataset.kind=kind;
+  if(kind==='cart'){
+    const sub=subtotal();
+    d.innerHTML=`<div class="d-head"><h2 id="d-title">Your bag</h2><button class="iconbtn" data-close aria-label="Close">${I.x}</button></div>
+      <div class="d-body">${cart.length?cart.map((l,i)=>{const p=byId[l.id];return `<div class="line"><div class="th">${art(p,'main',l.finish)}</div><div><a href="#product-${p.id}">${esc(p.name)}</a><div class="sub">${FIN[l.finish].name} · ${fmt(p.price)}</div><div class="ctl"><div class="stepper sm"><button data-cq="${i}" data-d="-1" aria-label="Decrease">${I.minus}</button><output class="num">${l.qty}</output><button data-cq="${i}" data-d="1" aria-label="Increase" ${l.qty>=p.stock?'disabled':''}>${I.plus}</button></div><button class="rm" data-crm="${i}">Remove</button></div></div><span class="num price">${fmt(p.price*l.qty)}</span></div>`}).join('')
+       :`<div class="empty"><h3>Your bag is empty</h3><p class="muted">Browse the collection and add the pieces you like.</p><a class="btn btn-gold" href="#shop">Start shopping</a></div>`}</div>
+      ${cart.length?`<div class="d-foot"><div class="sumrow"><span>Subtotal</span><b class="num" style="color:var(--ink)">${fmt(sub)}</b></div><div class="sumrow muted" style="font-size:13px"><span>Delivery</span><span>Calculated at checkout</span></div><a class="btn btn-gold btn-block" href="#checkout">Proceed to checkout</a><button class="btn btn-line btn-block" data-close>Continue shopping</button></div>`:''}`;
+  } else if(kind==='qv'){
+    const p=byId[id];
+    d.innerHTML=`<div class="d-head"><span class="eyebrow">${catName(p.cat)}</span><button class="iconbtn" data-close aria-label="Close">${I.x}</button></div>
+      <div class="d-body"><div class="qv-art">${art(p)}</div><h2 id="d-title" style="font-size:28px">${esc(p.name)}</h2>
+      <div class="row" style="justify-content:space-between"><span class="price" style="font-size:20px">${fmt(p.price)}</span>${avail(p)}</div>
+      <p>${esc(p.desc)}</p><table class="specs">${specRows(p).split('</tr>').slice(0,5).join('</tr>')}</tr></table></div>
+      <div class="d-foot"><button class="btn btn-gold btn-block" data-add="${p.id}" ${p.stock===0?'disabled':''}>${I.bag}${p.stock?'Add to bag':'Out of stock'}</button><div class="row" style="justify-content:space-between"><a class="link" href="#product-${p.id}">Full details ${I.arrow}</a><a class="link" href="${waLink(`Hello, I'm interested in the ${p.name}. Please provide more information.`)}" target="_blank" rel="noopener">Ask on WhatsApp</a></div></div>`;
+  } else if(kind==='search'){
+    d.innerHTML=`<div class="d-head"><h2 id="d-title">Search</h2><button class="iconbtn" data-close aria-label="Close">${I.x}</button></div>
+      <div class="d-body"><div class="filters" style="border:0;padding:0;margin:0"><div class="search"><label class="sr" for="s-q">Search products</label>${I.search}<input id="s-q" class="input" type="search" placeholder="Chandelier, brass, outdoor…" autocomplete="off"></div></div><div class="sresults" id="s-res"></div></div>`;
+    renderSearch('');
+  } else if(kind==='menu'){
+    d.innerHTML=`<div class="d-head"><span class="logo"><b>ND</b><i></i><span>LIGHTING</span></span><button class="iconbtn" data-close aria-label="Close">${I.x}</button></div>
+      <div class="d-body"><h2 id="d-title" class="sr">Menu</h2><nav class="mnav">${[['home','Home'],['shop','Shop'],['categories','Categories'],['finder','Lighting Finder'],['about','About'],['contact','Contact']].map(([h,t])=>`<a href="#${h}">${t}</a>`).join('')}</nav>
+      <a class="btn btn-wa" href="${waLink('Hello ND Lighting!')}" target="_blank" rel="noopener">${I.wa}WhatsApp ${WA_DISPLAY}</a></div>`;
+  }
+  d.setAttribute('aria-hidden','false'); d.classList.add('on'); $('#scrim').classList.add('on');
+  setTimeout(()=>{const t=d.querySelector(kind==='search'?'#s-q':'.d-body a,.d-body button,.d-body input,[data-close]');t&&t.focus({preventScroll:true})},60);
+}
+function closeDrawer(){const d=$('#drawer');if(!d.classList.contains('on'))return;d.classList.remove('on');d.setAttribute('aria-hidden','true');d.dataset.kind='';$('#scrim').classList.remove('on');lastFocus&&lastFocus.focus&&lastFocus.focus({preventScroll:true});}
+function renderSearch(q){
+  const el=$('#s-res'); if(!el) return; q=q.trim().toLowerCase();
+  const list=q?PRODUCTS.filter(p=>(p.name+' '+catName(p.cat)+' '+p.material+' '+p.rooms.join(' ')).toLowerCase().includes(q)):PRODUCTS.filter(p=>p.featured).slice(0,5);
+  el.innerHTML=(q?'':`<p class="eyebrow" style="margin-bottom:6px">Popular</p>`)+(list.length?list.map(p=>`<a class="sres" href="#product-${p.id}"><span class="th">${art(p)}</span><span><b>${esc(p.name)}</b><br><span>${catName(p.cat)}</span></span><span class="num price" style="font-size:14px">${fmt(p.price)}</span></a>`).join(''):`<p class="muted">No products match "${esc(q)}". Try a category like "pendant" or a finish like "brass".</p>`);
+}
+
+let toastT;
+function toast(msg,action,fn){
+  const t=$('#toast'); t.innerHTML=`<span>${esc(msg)}</span>${action?`<button>${action}</button>`:''}`;
+  if(action) t.querySelector('button').onclick=()=>{t.classList.remove('on');fn()};
+  t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('on'),3800);
+}
+
+/* ---------- router ---------- */
+function setFab(msg){$('#fab').href=waLink(msg||'Hello ND Lighting! I have a question about your lighting.');}
+function route(){
+  const h=(location.hash||'#home').slice(1)||'home';
+  closeDrawer();
+  let html, nav=h, after=null;
+  setFab();
+  if(h==='home'){html=vHome();after=initHero;}
+  else if(h==='shop'){shop.cat=shop._fromCat?'all':shop.cat;shop._fromCat=false;shop.room=shop._fromRoom?'all':shop.room;shop._fromRoom=false;html=vShop();after=renderResults;}
+  else if(h.startsWith('category-')){const id=h.slice(9);if(!CATS.find(c=>c.id===id)){html=vMissing();}else{Object.assign(shop,{cat:id,room:'all',q:'',_fromCat:true});html=vShop({type:'cat',id});after=renderResults;}nav='categories';}
+  else if(h.startsWith('room-')){const id=h.slice(5);if(!ROOMS.find(r=>r.id===id)){html=vMissing();}else{Object.assign(shop,{room:id,cat:'all',q:'',_fromRoom:true});html=vShop({type:'room',id});after=renderResults;}nav='shop';}
+  else if(h==='categories') html=vCategories();
+  else if(h.startsWith('product-')){const id=h.slice(8);if(pdp.id!==id){pdp={id,finish:null,view:'main',qty:1};}html=vProduct(id);nav='shop';const p=byId[id];if(p)setFab(`Hello, I'm interested in the ${p.name}. Please provide more information.`);}
+  else if(h==='finder'){html=vFinder();nav='';}
+  else if(h==='checkout'){html=vCheckout();nav='';after=renderSummary;}
+  else if(h==='order'){html=vOrder();nav='';}
+  else if(h==='about') html=vAbout();
+  else if(h==='contact') html=vContact();
+  else html=vMissing();
+  $('#view').innerHTML=html;
+  document.querySelectorAll('[data-nav]').forEach(a=>{if(a.dataset.nav===nav)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  window.scrollTo(0,0);
+  after&&after();
+}
+function initHero(){
+  const s=$('#scene'); if(!s) return;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.remove('dim')));
+}
+function refreshPdpArt(){
+  const p=byId[pdp.id]; if(!p) return;
+  $('#stage').firstElementChild.outerHTML=art(p,pdp.view,pdp.finish);
+  document.querySelectorAll('.thumb').forEach(b=>{b.firstElementChild.outerHTML=art(p,b.dataset.view,pdp.finish);b.setAttribute('aria-pressed',b.dataset.view===pdp.view)});
+  document.querySelectorAll('.sw').forEach(b=>b.setAttribute('aria-pressed',b.dataset.finish===pdp.finish));
+  $('#fin-name').textContent=FIN[pdp.finish].name;
+  $('#p-wa').href=waLink(`Hello, I'm interested in the ${p.name} (${FIN[pdp.finish].name}, ${fmt(p.price)}). Please provide more information.`);
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button,a,[data-close],.stage'); if(!t) return;
+  const ds=t.dataset;
+  if(t.matches('#scrim')||ds.close!==undefined){closeDrawer();return;}
+  if(ds.open){openDrawer(ds.open);return;}
+  if(ds.qv){openDrawer('qv',ds.qv);return;}
+  if(ds.add){addToCart(ds.add);return;}
+  if(ds.k){heroK=+ds.k;$('#hero-art').innerHTML=art(byId.aurelia,'hero',null,heroK);document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==ds.k));return;}
+  if(ds.cat){shop.cat=ds.cat;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.cat===ds.cat));renderResults();return;}
+  if(ds.reset!==undefined){Object.assign(shop,{q:'',cat:'all',room:'all',price:'all',stock:false});$('#view').innerHTML=vShop();renderResults();return;}
+  if(ds.view){pdp.view=ds.view;$('#stage').classList.remove('zoomed');refreshPdpArt();return;}
+  if(ds.finish){pdp.finish=ds.finish;refreshPdpArt();return;}
+  if(ds.pq){const p=byId[pdp.id];pdp.qty=Math.max(1,Math.min(Math.max(p.stock,1),pdp.qty+(+ds.pq)));$('#pq').textContent=pdp.qty;return;}
+  if(ds.padd!==undefined){addToCart(pdp.id,pdp.finish,pdp.qty);return;}
+  if(ds.buynow!==undefined){const p=byId[pdp.id];const l=cart.find(x=>x.id===p.id&&x.finish===pdp.finish);if(l)l.qty=Math.min(p.stock,Math.max(l.qty,pdp.qty));else cart.push({id:p.id,finish:pdp.finish,qty:Math.min(pdp.qty,p.stock)});saveCart();location.hash='checkout';return;}
+  if(ds.cq!==undefined){const l=cart[+ds.cq];l.qty+=(+ds.d);if(l.qty<1)cart.splice(+ds.cq,1);saveCart();openDrawer('cart');return;}
+  if(ds.crm!==undefined){const p=byId[cart[+ds.crm].id];cart.splice(+ds.crm,1);saveCart();openDrawer('cart');toast(`${p.name} removed`);return;}
+  if(ds.f){finder[ds.f]=ds.v;$('#view').innerHTML=vFinder();window.scrollTo(0,0);return;}
+  if(ds.frestart!==undefined){finder={room:null,style:null,budget:null};$('#view').innerHTML=vFinder();return;}
+  if(ds.copy){const txt=$('#'+ds.copy).textContent;const done=()=>{t.textContent='Copied';setTimeout(()=>t.textContent=ds.copy==='msg'?'Copy order text':'Copy',1800)};
+    try{navigator.clipboard.writeText(txt).then(done,()=>selectText(ds.copy));}catch(err){selectText(ds.copy);}return;}
+  if(t.classList.contains('stage')){toggleZoom(t,e);return;}
+  if(t.tagName==='A'&&t.getAttribute('href')&&t.getAttribute('href').startsWith('#')&&t.getAttribute('href')===location.hash){route();}
+});
+$('#scrim').addEventListener('click',closeDrawer);
+function selectText(id){const r=document.createRange();r.selectNodeContents($('#'+id));const s=getSelection();s.removeAllRanges();s.addRange(r);toast('Text selected. Copy it with your device\'s copy option.');}
+function toggleZoom(st,e){
+  st.classList.toggle('zoomed');
+  $('#zl').textContent=st.classList.contains('zoomed')?'Click to zoom out':'Click to zoom';
+  if(e)moveZoom(st,e);
+}
+function moveZoom(st,e){const r=st.getBoundingClientRect();const svg=st.firstElementChild;const x=((e.clientX-r.left)/r.width*100)||50,y=((e.clientY-r.top)/r.height*100)||50;svg.style.transformOrigin=`${x}% ${y}%`;}
+document.addEventListener('mousemove',e=>{const st=e.target.closest&&e.target.closest('.stage.zoomed');if(st)moveZoom(st,e);});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeDrawer();return;}
+  if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('stage')){e.preventDefault();toggleZoom(e.target,null);}
+  if(e.key==='Tab'&&$('#drawer').classList.contains('on')){
+    const f=[...$('#drawer').querySelectorAll('a,button:not([disabled]),input,select,textarea')];if(!f.length)return;
+    if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f[f.length-1].focus();}
+    else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus();}
+  }
+});
+document.addEventListener('input',e=>{
+  const id=e.target.id;
+  if(id==='f-q'){shop.q=e.target.value;renderResults();}
+  else if(id==='s-q') renderSearch(e.target.value);
+});
+document.addEventListener('change',e=>{
+  const id=e.target.id;
+  if(id==='f-room'){shop.room=e.target.value;renderResults();}
+  else if(id==='f-price'){shop.price=e.target.value;renderResults();}
+  else if(id==='f-sort'){shop.sort=e.target.value;renderResults();}
+  else if(id==='f-stock'){shop.stock=e.target.checked;renderResults();}
+  else if(id==='c-state') renderSummary();
+});
+document.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(e.target.id==='co-form') submitOrder(e.target);
+  if(e.target.id==='ct-form'){
+    const n=$('#ct-name').value.trim(),ph=$('#ct-phone').value.trim(),m=$('#ct-msg').value.trim();
+    $('#w-ct-name').classList.toggle('bad',!n);$('#e-ct-name').textContent=n?'':'Enter your name.';
+    $('#w-ct-msg').classList.toggle('bad',!m);$('#e-ct-msg').textContent=m?'':'Write a short message.';
+    if(!n||!m) return;
+    const msg=`Hello ND Lighting!\n\nName: ${n}${ph?`\nPhone: ${ph}`:''}\n\n${m}`;
+    $('#ct-out').innerHTML=`<div class="note" style="display:grid;gap:12px"><span>Your message is ready. Open WhatsApp and press send.</span><a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener">${I.wa}Open WhatsApp to send</a></div>`;
+  }
+});
+window.addEventListener('hashchange',route);
+
+$('#f-cats').innerHTML=CATS.map(c=>`<li><a href="#category-${c.id}">${c.name}</a></li>`).join('');
+saveCart();
+route();
+})();
+</script>
+
+</body>
+</html>
